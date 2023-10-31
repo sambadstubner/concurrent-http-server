@@ -13,7 +13,7 @@ class ThreadPoolServer(Server):
         self.port = port
         self.delay = delay
         signal.signal(signal.SIGINT, self.handle_exit)
-        self.thread_pool = ThreadPool(4)
+        self.thread_pool = ThreadPool(10)
 
     def run(self):
         self.server_socket = socket.create_server(
