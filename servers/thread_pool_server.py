@@ -6,8 +6,8 @@ import sys
 from .server import Server
 from servers.utils.thread_pool import ThreadPool
 
-class ThreadPoolServer(Server):
 
+class ThreadPoolServer(Server):
     def __init__(self, port: int, folder: str, delay: bool = False):
         self.root = folder
         self.port = port
@@ -28,15 +28,13 @@ class ThreadPoolServer(Server):
             task = lambda connection=connection: self.handle_connection(connection)
             self.thread_pool.submit(task)
 
-
     def handle_exit(self, sig, frame):
         logging.info("Interrupt detected, shutting down server...")
 
-        self.wait_for_all_threads()    
+        self.wait_for_all_threads()
 
         self.server_socket.close()
         sys.exit(0)
-
 
     def wait_for_all_threads(self):
         self.thread_pool.close()

@@ -40,7 +40,6 @@ class Server:
                     logging.info("Client disconnected...")
                     break
                 while request.find("\r\n\r\n") == -1:
-                    print("in while")
                     request += connection.recv(self.DEFAULT_BUFFER_SIZE).decode()
 
             except:
