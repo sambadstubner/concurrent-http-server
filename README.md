@@ -2,7 +2,7 @@
 
 An example of an HTTP server which serves GET requests. It is implemented in three concurrent versions: spawning a thread for every request, using a thread pool, and using the asyncio library.
 
-benchmark.md shows a comparison of the three examples against a single-threaded version.
+benchmark.md shows a comparison of the three examples against a single-threaded version using wkr2
 
 ## Usage
 ```
